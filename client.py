@@ -1,17 +1,20 @@
 import socket,cv2, pickle,struct
 
+#To create the socket it is same for both server and client
 client_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 host_ip = '192.168.43.61' 
 port = 2222
 print("Socket Created")
 print("\t\t\t\n*************************************************")
 
+#To connect with server 
 client_socket.connect((host_ip,port))
 data = b""
 payload_size = struct.calcsize("Q")
 print("Socket Accept")
 print("\t\t\t\n*************************************************")
 
+#To capture the reciving video
 while True:
     while len(data) < payload_size:
         packet = client_socket.recv(4*1024) # 4K
@@ -32,5 +35,4 @@ while True:
         break
 client_socket.close()
 
-print("Thank you guy's")
-print("\t\t\t\n=================================================")
+
