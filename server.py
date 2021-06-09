@@ -1,6 +1,6 @@
 import socket, cv2, pickle,struct
 
-
+#To create socket instance
 server_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 host_name  = socket.gethostname()
 host_ip = socket.gethostbyname(host_name)
@@ -11,15 +11,17 @@ socket_address = ('192.168.43.61',port)
 print("Socket Created")
 print("\t\t\t\n*************************************************")
 
+#To bind the socket 
 server_socket.bind(socket_address)
 print("Socket Bind Successfully")
 print("\t\t\t\n*************************************************")
 
-
+#To make socket ready for accepting connections. 
 server_socket.listen(5)
 print("LISTENING AT:",socket_address)
 print("\t\t\t\n*************************************************")
 
+#To accept the connection request from the client.
 print("Socket Accept")
 print("\t\t\t\n*************************************************")
 while True:
